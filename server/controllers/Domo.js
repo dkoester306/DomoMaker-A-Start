@@ -22,20 +22,34 @@ const makeDomo = (req, res) => {
     if (err.code === 11000) {
       return res.status(400).json({ error: 'Domo already exists' });
     }
-    return res.status(400).json({error:'An error occurred'});
+    return res.status(400).json({ error: 'An error occurred' });
   });
   return domoPromise;
 };
 
 const makerPage = (req, res) => {
-  Domo.DomoModel.findByOwner(req.session.account._id, (err,docs)=>{
-    if(err){
+  Domo.DomoModel.findByOwner(req.session.account._id, (err, docs) => {
+    if (err) {
       console.log(err);
-      return res.status(400).json({error:'An error occurred'});
+      return res.status(400).json({ error: 'An error occurred' });
     }
-    return res.render('app',{csrfToken: req.csrfToken(),domos:docs});
+    return res.render('app', { csrfToken: req.csrfToken(), domos: docs });
+  });
+};
+
+const getDomos = (request, response) => {
+  const req = request;
+  const res = response;
+
+  return Domo.DomoModel.findByOwner(req.session.account._id, (err, docs) => {
+    if (err) {
+      console.log(err);
+      return res.status(400).json({ error: 'An error occurred' });
+    }
+    return res.json({ domos: docs });
   });
 };
 
 module.exports.make = makeDomo;
+module.exports.getDomos = getDomos;
 module.exports.makerPage = makerPage;

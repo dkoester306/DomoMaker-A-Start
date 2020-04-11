@@ -21,7 +21,7 @@ var DomoForm = function DomoForm(props) {
   return (/*#__PURE__*/React.createElement("form", {
       id: "domoForm",
       name: "domoForm",
-      onsubmit: handleDomo,
+      onSubmit: handleDomo,
       action: "/maker",
       method: "POST",
       className: "domoForm"
@@ -52,7 +52,7 @@ var DomoForm = function DomoForm(props) {
 };
 
 var DomoList = function DomoList(props) {
-  if (props.domos.legnth === 0) {
+  if (props.domos.length === 0) {
     return (/*#__PURE__*/React.createElement("div", {
         className: "domoList"
       }, /*#__PURE__*/React.createElement("h3", {
@@ -71,9 +71,9 @@ var DomoList = function DomoList(props) {
         className: "domoFace"
       }), /*#__PURE__*/React.createElement("h3", {
         className: "domoName"
-      }, "Name: "), /*#__PURE__*/React.createElement("h3", {
+      }, "Name: ", domo.name), /*#__PURE__*/React.createElement("h3", {
         className: "domoAge"
-      }, "Age: "))
+      }, "Age: ", domo.age))
     );
   });
   return (/*#__PURE__*/React.createElement("div", {

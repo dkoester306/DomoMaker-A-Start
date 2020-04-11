@@ -16,7 +16,7 @@ const handleDomo = (e) => {
 const DomoForm = (props) => {
     return (
         <form id="domoForm" name="domoForm"
-            onsubmit={handleDomo}
+            onSubmit={handleDomo}
             action="/maker"
             method="POST"
             className="domoForm"
@@ -32,7 +32,7 @@ const DomoForm = (props) => {
 };
 
 const DomoList = function (props) {
-    if (props.domos.legnth === 0) {
+    if (props.domos.length === 0) {
         return (
             <div className="domoList">
                 <h3 className="emptyDomo">No Domos Yet</h3>
@@ -43,8 +43,8 @@ const DomoList = function (props) {
         return (
             <div key={domo._id} className="domo">
                 <img src="/assets/img/domoface.jpeg" alt="domo face" className="domoFace" />
-                <h3 className="domoName">Name: </h3>
-                <h3 className="domoAge">Age: </h3>
+                <h3 className="domoName">Name: {domo.name}</h3>
+                <h3 className="domoAge">Age: {domo.age}</h3>
             </div>
         );
     });

@@ -40,7 +40,7 @@ var LoginWindow = function LoginWindow(props) {
   return (/*#__PURE__*/React.createElement("form", {
       id: "loginForm",
       name: "loginForm",
-      onsubmit: handleLogin,
+      onSubmit: handleLogin,
       action: "/login",
       method: "POST",
       className: "mainForm"
@@ -74,7 +74,7 @@ var SignupWindow = function SignupWindow(props) {
   return (/*#__PURE__*/React.createElement("form", {
       id: "signupForm",
       name: "signupForm",
-      onsubmit: handleSignup,
+      onSubmit: handleSignup,
       action: "/signup",
       method: "POST",
       className: "mainForm"
